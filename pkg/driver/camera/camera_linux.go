@@ -81,7 +81,7 @@ type camera struct {
 }
 
 func init() {
-	Initialize()
+	// Initialize()
 }
 
 // Initialize finds and registers camera devices. This is part of an experimental API.
@@ -92,10 +92,10 @@ func Initialize() {
 	for _, d := range manager.Query(driver.FilterVideoRecorder()) {
 		manager.Delete(d.ID())
 	}
-	// discovered := make(map[string]struct{})
-	// discover(discovered, "/dev/v4l/by-id/*")
-	// discover(discovered, "/dev/v4l/by-path/*")
-	// discover(discovered, "/dev/video*")
+	discovered := make(map[string]struct{})
+	discover(discovered, "/dev/v4l/by-id/*")
+	discover(discovered, "/dev/v4l/by-path/*")
+	discover(discovered, "/dev/video*")
 }
 
 func discover(discovered map[string]struct{}, pattern string) {
