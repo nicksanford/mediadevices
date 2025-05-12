@@ -32,7 +32,7 @@ type camera struct {
 }
 
 func init() {
-	Initialize()
+	// Initialize()
 }
 
 // Initialize finds and registers camera devices. This is part of an experimental API.
